@@ -6,17 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: mysql,分页 | boytian</title>
+  <title>Docker安装tomcat镜像并部署项目 | boytian</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="boytian">
-<meta property="og:url" content="http://yoursite.com/tags/mysql-分页/index.html">
+  <meta name="description" content="学习打卡_Docker容器：">
+<meta name="keywords" content="Docker学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker安装tomcat镜像并部署项目">
+<meta property="og:url" content="http://yoursite.com/2020/01/10/Docker安装tomcat并部署项目/index.html">
 <meta property="og:site_name" content="boytian">
+<meta property="og:description" content="学习打卡_Docker容器：">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-01-10T08:26:37.059Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="boytian">
+<meta name="twitter:title" content="Docker安装tomcat镜像并部署项目">
+<meta name="twitter:description" content="学习打卡_Docker容器：">
   
     <link rel="alternative" href="/atom.xml" title="boytian" type="application/atom+xml">
   
@@ -89,9 +94,7 @@
 	        
 				<li><a href="/archives/index.html" >归档</a></li>
 	        
-				<li><a href="/categories/javaweb" >java web</a></li>
-	        
-				<li><a href="/categories/ssm" >ssm</a></li>
+				<li><a href="/categories/Docker容器" >Docker容器</a></li>
 	        
 			</ul>
 		</nav>
@@ -153,8 +156,6 @@
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
@@ -173,13 +174,11 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 25%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 25%"><a href="/archives/index.html">归档</a></li>
+					<li style="width: 33.333333333333336%"><a href="/archives/index.html">归档</a></li>
 		        
-					<li style="width: 25%"><a href="/categories/javaweb">java web</a></li>
-		        
-					<li style="width: 25%"><a href="/categories/ssm">ssm</a></li>
+					<li style="width: 33.333333333333336%"><a href="/categories/Docker容器">Docker容器</a></li>
 		        
 				</ul>
 			</nav>
@@ -195,76 +194,276 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-Docker安装tomcat并部署项目" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
   
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/09/30/mysql分页查询/" class="archive-article-date">
-        <time datetime="2019-09-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-30</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/09/30/mysql分页查询/">mysql分页打卡</a>
-	
+    <h1 class="article-title" itemprop="name">
+      Docker安装tomcat镜像并部署项目
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2020/01/10/Docker安装tomcat并部署项目/" class="archive-article-date">
+        <time datetime="2020-01-09T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-10</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">222字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">1分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1>学习打卡_Docker容器：</h1>
+
+<a id="more"></a>
+
+<blockquote>
+<p>1、搜索镜像</p>
+</blockquote>
+<p><code>docker search tomcat</code></p>
+<blockquote>
+<p>2、拉取镜像,:后面跟版本号</p>
+</blockquote>
+<p>格式：<code>docker pull [选项] [Docker Registry 地址[:端口号]/]仓库名[:标签]</code></p>
+<p><code>docker pull tomcat</code></p>
+<p><code>docker pull tomcat:9</code></p>
+<blockquote>
+<p>3、查看镜像</p>
+</blockquote>
+<p><code>docker images</code> </p>
+<blockquote>
+<p>4、通过镜像创建tomcat</p>
+</blockquote>
+<p>：用docker启动一个容器，左边是宿主据端口 右边是容器端口 起个名字叫tomcat 在后台运行 运行 tomcat：9 运行后进入容器</p>
+<p><code>docker run -p 8080:8080 --name tomcat -d tomcat:9</code></p>
+<blockquote>
+<p>5、进入这个容器交互</p>
+</blockquote>
+<p>：docker容器交互 跟id /bin/bash，用bash来操作容器</p>
+<p><code>docker exec -it 容器ID /bin/bash</code><br>进入ROOT目录（自己创建），执行</p>
+<p><code>echo hello word &gt; index.jsp</code></p>
+<blockquote>
+<p>注：安装mysql初始用户密码</p>
+</blockquote>
+<p><code>docker run --name mysql5.7 -e MYSQL_ROOT_PASSWORD=tiantian -p 3306:3306 -d mysql:5.7</code></p>
+<blockquote>
+<p>打包部署war</p>
+</blockquote>
+<p>将准备好的war包 cp到tomcat目录下如：</p>
+<p><code>docker cp qx.war 31383f231bb2:/usr/local/tomcat/webapps/</code></p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    <div class="article-pop-out tagcloud">
+      <i class="icon-tuding"></i>
+      <a class="article-tag-list-link color3">置顶</a>
+    </div>
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">mysql,分页</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Docker学习</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/javaweb//" class="article-tag-list-link color3">javaweb</a>
+        			<a href="/categories/Docker容器//" class="article-tag-list-link color4">Docker容器</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+    
 
     
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/01/10/Docker安装tomcat并部署项目/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2020/01/10/Docker安装与卸载/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Docker的安装与卸载</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">学习打卡_Docker容器：</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="comments" class="comments">
+  <style>
+    .comments{margin:30px;padding:10px;background:#fff}
+    @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+  </style>
+  <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "gfpSgCQ8Dl2LvgCIFlO8w38a-gzGzoHsz",
+            app_key: "uiSv6C1P5mQeK9IXBiUcJT78",
+            placeholder: "一起讨论~~",
+            avatar:"monsterid"
+        });
+    }
+</script>
+  </section>
+
 
 
           </div>
@@ -274,7 +473,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 boytian
+    		&copy; 2019-2020 boytian
     	</div>
       	<div class="footer-right">
 			
@@ -305,9 +504,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
@@ -393,15 +592,7 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ssm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">servlet,web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">mysql,分页</a>
+                <a href="javascript:void(0)" class="js-tag color4">Docker学习</a>
               </li>
             
             <div class="clearfix"></div>

@@ -6,26 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>mysql分页打卡 | boytian</title>
+  <title>Docker配置mysql主从复制 | boytian</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="分页环境：">
-<meta name="keywords" content="mysql,分页">
+  <meta name="description" content="学习打卡_Docker容器：">
+<meta name="keywords" content="Docker学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mysql分页打卡">
-<meta property="og:url" content="http://yoursite.com/2019/09/30/mysql分页查询/index.html">
+<meta property="og:title" content="Docker配置mysql主从复制">
+<meta property="og:url" content="http://yoursite.com/2020/01/10/Docker配置mysql主从复制/index.html">
 <meta property="og:site_name" content="boytian">
-<meta property="og:description" content="分页环境：">
+<meta property="og:description" content="学习打卡_Docker容器：">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://120.78.166.93/img/1.png">
-<meta property="og:image" content="http://120.78.166.93/img/2.png">
-<meta property="og:image" content="http://120.78.166.93/img/4.png">
-<meta property="og:updated_time" content="2019-09-30T14:47:56.372Z">
+<meta property="og:updated_time" content="2020-01-10T08:26:33.985Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mysql分页打卡">
-<meta name="twitter:description" content="分页环境：">
-<meta name="twitter:image" content="http://120.78.166.93/img/1.png">
+<meta name="twitter:title" content="Docker配置mysql主从复制">
+<meta name="twitter:description" content="学习打卡_Docker容器：">
   
     <link rel="alternative" href="/atom.xml" title="boytian" type="application/atom+xml">
   
@@ -98,9 +94,7 @@
 	        
 				<li><a href="/archives/index.html" >归档</a></li>
 	        
-				<li><a href="/categories/javaweb" >java web</a></li>
-	        
-				<li><a href="/categories/ssm" >ssm</a></li>
+				<li><a href="/categories/Docker容器" >Docker容器</a></li>
 	        
 			</ul>
 		</nav>
@@ -162,8 +156,6 @@
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
@@ -182,13 +174,11 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 25%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 25%"><a href="/archives/index.html">归档</a></li>
+					<li style="width: 33.333333333333336%"><a href="/archives/index.html">归档</a></li>
 		        
-					<li style="width: 25%"><a href="/categories/javaweb">java web</a></li>
-		        
-					<li style="width: 25%"><a href="/categories/ssm">ssm</a></li>
+					<li style="width: 33.333333333333336%"><a href="/categories/Docker容器">Docker容器</a></li>
 		        
 				</ul>
 			</nav>
@@ -204,14 +194,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-mysql分页查询" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Docker配置mysql主从复制" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      mysql分页打卡
+      Docker配置mysql主从复制
     </h1>
   
 
@@ -223,8 +213,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2019/09/30/mysql分页查询/" class="archive-article-date">
-        <time datetime="2019-09-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-30</time>
+<a href="/2020/01/10/Docker配置mysql主从复制/" class="archive-article-date">
+        <time datetime="2020-01-09T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-10</time>
 </a>
 
   
@@ -237,7 +227,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">632字</span>
+      <span class="post-count">424字</span>
     </span>
   </span>
 
@@ -246,7 +236,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">2分</span>
+      <span class="post-count">1分</span>
     </span>
   </span>
 </div>
@@ -257,72 +247,42 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <blockquote>
-<p>分页环境：</p>
-</blockquote>
+    <h1>学习打卡_Docker容器：</h1>
+
 <a id="more"></a>
 <blockquote>
-<p>源码： <a href="http://120.78.166.93/demo/fenye.zip" target="_blank" rel="noopener">分页demo源码下载</a></p>
+<p>已有环境 tomcat下有一个项目，有一个mysql容器，项目与这个mysql容器对接完成—–配置从服务器</p>
 </blockquote>
-<ol>
-<li><p><strong>建立数据库 stu</strong> </p>
-</li>
-<li><p><strong>建一张表 student，插入数据如图</strong></p>
-<table>
-<tr> 
-  <td><img src="http://120.78.166.93/img/1.png" width="150" height="150"></td>
-  <td><img src="http://120.78.166.93/img/2.png" width="500" height="150"></td>
-</tr>
-</table></li>
-<li><p><strong>分页效果图</strong></p>
-<table>
-<tr> 
-  <td> <img src="http://120.78.166.93/img/4.png" width="650" height="150"></td>
-</tr>
-</table>
+<p>1、创建一个mysql实例 命名从服务器</p>
+<p><code>docker run --name mysql5.7cong -e MYSQL_ROOT_PASSWORD=tiantian -p 3307:3306 -d mysql:5.7</code></p>
+<p>2、搭建从服务器与主服务器表库结构一致</p>
+<p>3、完成以上准备工作就可以开始配置主机mysql配置文件</p>
+<p>– 进入主机mysql容器</p>
+<p><code>docker exec -it e1066fe2db35 /bin/bash</code></p>
+<p>– 安装vim编辑更改配置文件</p>
+<ul>
+<li>更新软件包<br> <code>apt-get update</code></li>
+<li>安装vim<br> <code>apt-get install vim</code></li>
+</ul>
+<p>– 修改配置文件</p>
+<p><code>vim /etc/mysql/mysql.conf.d/mysqld.cnf</code></p>
+<p>– 添加如下内容</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">## 同一局域网内注意要唯一</span><br><span class="line">server-id=1  </span><br><span class="line">## 开启二进制日志功能，可以随便取（关键）</span><br><span class="line">log-bin=mysql-bin</span><br></pre></td></tr></table></figure>
 
+<p>– 重启MySQL服务<code>service mysql restart</code>,重启容器<code>docker start d9f3f44270f2</code></p>
+<p>4、链接MySQL客户端执行以下命令<br>：参数 用户名 ip地址 密码 都是从机的配置<br><code>GRANT replication slave ON *.* TO &#39;root&#39;@&#39;192.168.0.108&#39; IDENTIFIED BY &#39;tiantian&#39;;</code></p>
+<p><code>FLUSH PRIVILEGES</code></p>
+<p><code>show master status;</code> :记录成成的两个值，不要对主机做任何操作，开始配从机</p>
+<p>5、从机配置修改从机配置文件并重启服务和主机一样</p>
+<p>– 修改配置文件</p>
+<p><code>vim /etc/mysql/mysql.conf.d/mysqld.cnf</code></p>
+<p> – 添加如下内容</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">## 同一局域网内注意要唯一</span><br><span class="line">server-id=2  </span><br><span class="line">## 开启二进制日志功能，可以随便取（关键）</span><br><span class="line">log-bin=mysql-bin</span><br></pre></td></tr></table></figure>
 
-</li>
-</ol>
-<blockquote>
-<p>分页流程</p>
-</blockquote>
-<ol>
-<li><p><strong>mysql分页sql</strong></p>
-<p> <code>select * from student limit pageIndex,pageSize</code></p>
-<pre><code>第一个参数：起始数据
-
-第二个参数：页面大小</code></pre></li>
-<li><p><strong>前端用户自定义两个参数</strong></p>
-<pre><code>pageSize：页面大小（每页显示几条数据）
-
-nowPage：页码（当前页）</code></pre></li>
-</ol>
-<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><hr>
-<p>用户从页面传递两个参数页码和页面大小，而我们后台查询时还需要pageIndex这个参数才能完成查询，所以需要通过用户传递的这两个参数从而计算出pageIndex这个参数的值完成查询</p>
-<pre><code>分析： 假设页面大小为5
-
-第一页：select * from student limit 0,5
-
-第二页：select * from student limit 5,5
-
-第三页：select * from student limit 10,5
-
-第四页：select * from student limit 15,5</code></pre><p><strong>得出结论</strong>： 起始数据=（页码-1）*页面大小</p>
-<pre><code>pageIndex=（nowPage-1）*pageSize</code></pre><p>到此，就可以查询出当先页并返回给前端页面展示，要想实现首页，上一页，下一页，尾页的展示</p>
-<p>可以通过当前页的页码减一或者加一的操作实现上一页，下一页，但是有一个问题当页面不存在或</p>
-<p>者说数据有限时，我们应该让它显示最后一页，这时我们需要知道数据总页数（<code>totalPage</code>），</p>
-<p>而这个参数也可以计算出来 </p>
-<pre><code>count：总数据数
-
-select count（*） from student 
-
-总页数=总数据数%页面大小==0? 总数据数/页面大小:总数据数/页面大小+1
-
-totalPage=count%pageSize==0? count/pageSize:count/pageSize+1</code></pre><p>到这里我们就可以封装一个<code>Page</code>类，封装上述所有提到的参数，代码如下</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> site.tian.pojo;</span><br><span class="line"><span class="comment">/**前台传入 </span></span><br><span class="line"><span class="comment"> *     页面大小：pageSize  </span></span><br><span class="line"><span class="comment"> *     第几页：nowPage    </span></span><br><span class="line"><span class="comment"> * */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Page</span> </span>&#123;</span><br><span class="line">    <span class="comment">//页面大小</span></span><br><span class="line">    <span class="keyword">private</span> Integer pageSize;</span><br><span class="line">    <span class="comment">//第几页</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> nowPage;</span><br><span class="line">    <span class="comment">//总数据数</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> count;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="comment">//总页数  通过总数据数得知  总页数=总数据数%页面大小==0? 总数据数/页面大小:总数据数/页面大小+1</span></span><br><span class="line">    <span class="keyword">private</span> Integer totalPage;</span><br><span class="line">    <span class="comment">//索引开始  （第几页-1）*页面大小</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> pageIndex;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">getPageSize</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> pageSize;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPageSize</span><span class="params">(Integer pageSize)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.pageSize = pageSize;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getNowPage</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> nowPage;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setNowPage</span><span class="params">(<span class="keyword">int</span> nowPage)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.nowPage = nowPage;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCount</span><span class="params">(<span class="keyword">int</span> count)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.count = count;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">getTotalPage</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> totalPage=count%pageSize==<span class="number">0</span>? count/pageSize:count/pageSize+<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">getPageIndex</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> pageIndex=(nowPage-<span class="number">1</span>)*pageSize;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p>​<br>到此可以实现一个分页，其中有些细节可以参考demo源码！                      </p>
+<p>– 重启MySQL服务<code>service mysql restart</code>,重启容器<code>docker start d9f3f44270f2</code></p>
+<p>启动从服务器：<code>start slave;</code>  ， 查看是否生效：<code>show slave status\G;</code> 出现两个yes表示成功</p>
+<p>– 停止服务复制</p>
+<p><code>stop slave</code></p>
 
     
 
@@ -344,7 +304,7 @@ totalPage=count%pageSize==0? count/pageSize:count/pageSize+1</code></pre><p>到�
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">mysql,分页</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Docker学习</a>
         		</li>
       		
 		</ul>
@@ -356,7 +316,7 @@ totalPage=count%pageSize==0? count/pageSize:count/pageSize+1</code></pre><p>到�
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/javaweb//" class="article-tag-list-link color3">javaweb</a>
+        			<a href="/categories/Docker容器//" class="article-tag-list-link color4">Docker容器</a>
         		</li>
       		
 		</ul>
@@ -411,7 +371,7 @@ totalPage=count%pageSize==0? count/pageSize:count/pageSize+1</code></pre><p>到�
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/30/mysql分页查询/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/01/10/Docker配置mysql主从复制/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -426,20 +386,15 @@ totalPage=count%pageSize==0? count/pageSize:count/pageSize+1</code></pre><p>到�
 
 <nav id="article-nav">
   
-    <a href="/2019/10/22/SSM整合/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/01/10/Docker安装与卸载/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          SSM项目快速整合搭建
+          Docker的安装与卸载
         
       </div>
     </a>
   
-  
-    <a href="/2019/09/11/servlet执行的详细过程/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">servlet执行过程打卡</div>
-      <i class="icon-circle-right"></i>
-    </a>
   
 </nav>
 
@@ -464,7 +419,7 @@ totalPage=count%pageSize==0? count/pageSize:count/pageSize+1</code></pre><p>到�
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#思路"><span class="toc-number">1.</span> <span class="toc-text">思路</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">学习打卡_Docker容器：</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -520,7 +475,7 @@ totalPage=count%pageSize==0? count/pageSize:count/pageSize+1</code></pre><p>到�
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 boytian
+    		&copy; 2019-2020 boytian
     	</div>
       	<div class="footer-right">
 			
@@ -639,15 +594,7 @@ totalPage=count%pageSize==0? count/pageSize:count/pageSize+1</code></pre><p>到�
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ssm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">servlet,web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">mysql,分页</a>
+                <a href="javascript:void(0)" class="js-tag color4">Docker学习</a>
               </li>
             
             <div class="clearfix"></div>
