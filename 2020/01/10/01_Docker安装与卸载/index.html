@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Docker安装tomcat镜像并部署项目 | boytian</title>
+  <title>Docker的安装与卸载 | boytian</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="description" content="学习打卡_Docker容器：">
 <meta name="keywords" content="Docker学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Docker安装tomcat镜像并部署项目">
-<meta property="og:url" content="http://yoursite.com/2020/01/10/Docker安装tomcat并部署项目/index.html">
+<meta property="og:title" content="Docker的安装与卸载">
+<meta property="og:url" content="http://yoursite.com/2020/01/10/01_Docker安装与卸载/index.html">
 <meta property="og:site_name" content="boytian">
 <meta property="og:description" content="学习打卡_Docker容器：">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-10T08:26:37.059Z">
+<meta property="og:updated_time" content="2020-01-10T08:26:35.060Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Docker安装tomcat镜像并部署项目">
+<meta name="twitter:title" content="Docker的安装与卸载">
 <meta name="twitter:description" content="学习打卡_Docker容器：">
   
     <link rel="alternative" href="/atom.xml" title="boytian" type="application/atom+xml">
@@ -194,14 +194,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Docker安装tomcat并部署项目" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-01_Docker安装与卸载" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      Docker安装tomcat镜像并部署项目
+      Docker的安装与卸载
     </h1>
   
 
@@ -213,7 +213,7 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2020/01/10/Docker安装tomcat并部署项目/" class="archive-article-date">
+<a href="/2020/01/10/01_Docker安装与卸载/" class="archive-article-date">
         <time datetime="2020-01-09T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-10</time>
 </a>
 
@@ -227,7 +227,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">222字</span>
+      <span class="post-count">207字</span>
     </span>
   </span>
 
@@ -252,39 +252,48 @@
 <a id="more"></a>
 
 <blockquote>
-<p>1、搜索镜像</p>
+<p>Docker 安装与卸载</p>
 </blockquote>
-<p><code>docker search tomcat</code></p>
+<hr>
+<p> 环境: CentOS7</p>
 <blockquote>
-<p>2、拉取镜像,:后面跟版本号</p>
+<p>安装</p>
 </blockquote>
-<p>格式：<code>docker pull [选项] [Docker Registry 地址[:端口号]/]仓库名[:标签]</code></p>
-<p><code>docker pull tomcat</code></p>
-<p><code>docker pull tomcat:9</code></p>
+<p>1、yum安装gcc相关，需要CentOS7能上外网</p>
+<p><code>yum -y install gcc</code> </p>
+<p><code>yum -y install gcc-c++</code></p>
+<p>2、卸载旧版本</p>
+<p><code>yum -y remove docker docker-common docker-selinux docker-engine</code></p>
+<p>3、安装需要的软件包</p>
+<p><code>yum install -y yum-utils device-mapper-persistent-data lvm2</code></p>
+<p>4、设置stable镜像仓库</p>
+<p><code>yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</code></p>
+<p>5、更新yum软件包索引</p>
+<p><code>yum makecache fast</code></p>
+<p>6、安装docker ce </p>
+<p><code>yum -y install docker-ce</code></p>
+<p>7、启动daocer</p>
+<p><code>systemctl start docker</code></p>
+<p>8、测试</p>
+<p><code>docker version</code></p>
+<p>9、配置镜像加速</p>
+<p><code>mkdir -p /etc/docker</code>  </p>
+<p><code>vim  /etc/docker/daemon.json</code></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"registry-mirrors"</span>: [<span class="string">"https://2vvc7d7j.mirror.aliyuncs.com"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>10、配置生效</p>
+<p><code>systemctl daemon-reload</code></p>
+<p>11、重启docker</p>
+<p><code>systemctl restart docker</code></p>
 <blockquote>
-<p>3、查看镜像</p>
+<p>卸载</p>
 </blockquote>
-<p><code>docker images</code> </p>
-<blockquote>
-<p>4、通过镜像创建tomcat</p>
-</blockquote>
-<p>：用docker启动一个容器，左边是宿主据端口 右边是容器端口 起个名字叫tomcat 在后台运行 运行 tomcat：9 运行后进入容器</p>
-<p><code>docker run -p 8080:8080 --name tomcat -d tomcat:9</code></p>
-<blockquote>
-<p>5、进入这个容器交互</p>
-</blockquote>
-<p>：docker容器交互 跟id /bin/bash，用bash来操作容器</p>
-<p><code>docker exec -it 容器ID /bin/bash</code><br>进入ROOT目录（自己创建），执行</p>
-<p><code>echo hello word &gt; index.jsp</code></p>
-<blockquote>
-<p>注：安装mysql初始用户密码</p>
-</blockquote>
-<p><code>docker run --name mysql5.7 -e MYSQL_ROOT_PASSWORD=tiantian -p 3306:3306 -d mysql:5.7</code></p>
-<blockquote>
-<p>打包部署war</p>
-</blockquote>
-<p>将准备好的war包 cp到tomcat目录下如：</p>
-<p><code>docker cp qx.war 31383f231bb2:/usr/local/tomcat/webapps/</code></p>
+<p>1、停止docker运行</p>
+<p><code>systemctl stop docker​</code></p>
+<p>2、执行卸载</p>
+<p><code>yum -y remove docker-ce</code></p>
+<p>3、删除相关文件</p>
+<p><code>rm -rf /var/lib/docker</code></p>
 
     
 
@@ -373,7 +382,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/01/10/Docker安装tomcat并部署项目/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/01/10/01_Docker安装与卸载/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -389,8 +398,8 @@
 <nav id="article-nav">
   
   
-    <a href="/2020/01/10/Docker安装与卸载/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Docker的安装与卸载</div>
+    <a href="/2020/01/10/02_Docker安装tomcat并部署项目/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Docker安装tomcat镜像并部署项目</div>
       <i class="icon-circle-right"></i>
     </a>
   

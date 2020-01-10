@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-01-10T08:26:37.059Z</updated>
+  <updated>2020-01-10T08:26:35.060Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,32 +17,9 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Docker安装tomcat镜像并部署项目</title>
-    <link href="http://yoursite.com/2020/01/10/Docker%E5%AE%89%E8%A3%85tomcat%E5%B9%B6%E9%83%A8%E7%BD%B2%E9%A1%B9%E7%9B%AE/"/>
-    <id>http://yoursite.com/2020/01/10/Docker安装tomcat并部署项目/</id>
-    <published>2020-01-09T16:00:00.000Z</published>
-    <updated>2020-01-10T08:26:37.059Z</updated>
-    
-    <content type="html"><![CDATA[<h1>学习打卡_Docker容器：</h1><a id="more"></a><blockquote><p>1、搜索镜像</p></blockquote><p><code>docker search tomcat</code></p><blockquote><p>2、拉取镜像,:后面跟版本号</p></blockquote><p>格式：<code>docker pull [选项] [Docker Registry 地址[:端口号]/]仓库名[:标签]</code></p><p><code>docker pull tomcat</code></p><p><code>docker pull tomcat:9</code></p><blockquote><p>3、查看镜像</p></blockquote><p><code>docker images</code> </p><blockquote><p>4、通过镜像创建tomcat</p></blockquote><p>：用docker启动一个容器，左边是宿主据端口 右边是容器端口 起个名字叫tomcat 在后台运行 运行 tomcat：9 运行后进入容器</p><p><code>docker run -p 8080:8080 --name tomcat -d tomcat:9</code></p><blockquote><p>5、进入这个容器交互</p></blockquote><p>：docker容器交互 跟id /bin/bash，用bash来操作容器</p><p><code>docker exec -it 容器ID /bin/bash</code><br>进入ROOT目录（自己创建），执行</p><p><code>echo hello word &gt; index.jsp</code></p><blockquote><p>注：安装mysql初始用户密码</p></blockquote><p><code>docker run --name mysql5.7 -e MYSQL_ROOT_PASSWORD=tiantian -p 3306:3306 -d mysql:5.7</code></p><blockquote><p>打包部署war</p></blockquote><p>将准备好的war包 cp到tomcat目录下如：</p><p><code>docker cp qx.war 31383f231bb2:/usr/local/tomcat/webapps/</code></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1&gt;学习打卡_Docker容器：&lt;/h1&gt;
-    
-    </summary>
-    
-    
-      <category term="Docker容器" scheme="http://yoursite.com/categories/Docker%E5%AE%B9%E5%99%A8/"/>
-    
-    
-      <category term="Docker学习" scheme="http://yoursite.com/tags/Docker%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Docker的安装与卸载</title>
-    <link href="http://yoursite.com/2020/01/10/Docker%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%B8%E8%BD%BD/"/>
-    <id>http://yoursite.com/2020/01/10/Docker安装与卸载/</id>
+    <link href="http://yoursite.com/2020/01/10/01_Docker%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%B8%E8%BD%BD/"/>
+    <id>http://yoursite.com/2020/01/10/01_Docker安装与卸载/</id>
     <published>2020-01-09T16:00:00.000Z</published>
     <updated>2020-01-10T08:26:35.060Z</updated>
     
@@ -63,13 +40,36 @@
   </entry>
   
   <entry>
-    <title>Docker配置mysql主从复制</title>
-    <link href="http://yoursite.com/2020/01/10/Docker%E9%85%8D%E7%BD%AEmysql%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/"/>
-    <id>http://yoursite.com/2020/01/10/Docker配置mysql主从复制/</id>
+    <title>Docker安装tomcat镜像并部署项目</title>
+    <link href="http://yoursite.com/2020/01/10/02_Docker%E5%AE%89%E8%A3%85tomcat%E5%B9%B6%E9%83%A8%E7%BD%B2%E9%A1%B9%E7%9B%AE/"/>
+    <id>http://yoursite.com/2020/01/10/02_Docker安装tomcat并部署项目/</id>
     <published>2020-01-09T16:00:00.000Z</published>
-    <updated>2020-01-10T08:26:33.985Z</updated>
+    <updated>2020-01-10T08:26:37.059Z</updated>
     
-    <content type="html"><![CDATA[<h1>学习打卡_Docker容器：</h1><a id="more"></a><blockquote><p>已有环境 tomcat下有一个项目，有一个mysql容器，项目与这个mysql容器对接完成—–配置从服务器</p></blockquote><p>1、创建一个mysql实例 命名从服务器</p><p><code>docker run --name mysql5.7cong -e MYSQL_ROOT_PASSWORD=tiantian -p 3307:3306 -d mysql:5.7</code></p><p>2、搭建从服务器与主服务器表库结构一致</p><p>3、完成以上准备工作就可以开始配置主机mysql配置文件</p><p>– 进入主机mysql容器</p><p><code>docker exec -it e1066fe2db35 /bin/bash</code></p><p>– 安装vim编辑更改配置文件</p><ul><li>更新软件包<br> <code>apt-get update</code></li><li>安装vim<br> <code>apt-get install vim</code></li></ul><p>– 修改配置文件</p><p><code>vim /etc/mysql/mysql.conf.d/mysqld.cnf</code></p><p>– 添加如下内容</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">## 同一局域网内注意要唯一</span><br><span class="line">server-id=1  </span><br><span class="line">## 开启二进制日志功能，可以随便取（关键）</span><br><span class="line">log-bin=mysql-bin</span><br></pre></td></tr></table></figure><p>– 重启MySQL服务<code>service mysql restart</code>,重启容器<code>docker start d9f3f44270f2</code></p><p>4、链接MySQL客户端执行以下命令<br>：参数 用户名 ip地址 密码 都是从机的配置<br><code>GRANT replication slave ON *.* TO &#39;root&#39;@&#39;192.168.0.108&#39; IDENTIFIED BY &#39;tiantian&#39;;</code></p><p><code>FLUSH PRIVILEGES</code></p><p><code>show master status;</code> :记录成成的两个值，不要对主机做任何操作，开始配从机</p><p>5、从机配置修改从机配置文件并重启服务和主机一样</p><p>– 修改配置文件</p><p><code>vim /etc/mysql/mysql.conf.d/mysqld.cnf</code></p><p> – 添加如下内容</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">## 同一局域网内注意要唯一</span><br><span class="line">server-id=2  </span><br><span class="line">## 开启二进制日志功能，可以随便取（关键）</span><br><span class="line">log-bin=mysql-bin</span><br></pre></td></tr></table></figure><p>– 重启MySQL服务<code>service mysql restart</code>,重启容器<code>docker start d9f3f44270f2</code></p><p>启动从服务器：<code>start slave;</code>  ， 查看是否生效：<code>show slave status\G;</code> 出现两个yes表示成功</p><p>– 停止服务复制</p><p><code>stop slave</code></p>]]></content>
+    <content type="html"><![CDATA[<h1>学习打卡_Docker容器：</h1><a id="more"></a><blockquote><p>1、搜索镜像</p></blockquote><p><code>docker search tomcat</code></p><blockquote><p>2、拉取镜像,:后面跟版本号</p></blockquote><p>格式：<code>docker pull [选项] [Docker Registry 地址[:端口号]/]仓库名[:标签]</code></p><p><code>docker pull tomcat</code></p><p><code>docker pull tomcat:9</code></p><blockquote><p>3、查看镜像</p></blockquote><p><code>docker images</code> </p><blockquote><p>4、通过镜像创建tomcat</p></blockquote><p>：用docker启动一个容器，左边是宿主据端口 右边是容器端口 起个名字叫tomcat 在后台运行 运行 tomcat：9 运行后进入容器</p><p><code>docker run -p 8080:8080 --name tomcat -d tomcat:9</code></p><blockquote><p>5、进入这个容器交互</p></blockquote><p>：docker容器交互 跟id /bin/bash，用bash来操作容器</p><p><code>docker exec -it 容器ID /bin/bash</code><br>进入ROOT目录（自己创建），执行</p><p><code>echo hello word &gt; index.jsp</code></p><blockquote><p>注：安装mysql初始用户密码</p></blockquote><p><code>docker run --name mysql5.7 -e MYSQL_ROOT_PASSWORD=tiantian -p 3306:3306 -d mysql:5.7</code></p><blockquote><p>打包部署war</p></blockquote><p>将准备好的war包 cp到tomcat目录下如：</p><p><code>docker cp qx.war 31383f231bb2:/usr/local/tomcat/webapps/</code></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1&gt;学习打卡_Docker容器：&lt;/h1&gt;
+    
+    </summary>
+    
+    
+      <category term="Docker容器" scheme="http://yoursite.com/categories/Docker%E5%AE%B9%E5%99%A8/"/>
+    
+    
+      <category term="Docker学习" scheme="http://yoursite.com/tags/Docker%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Docker配置mysql主从复制</title>
+    <link href="http://yoursite.com/2020/01/10/03_Docker%E9%85%8D%E7%BD%AEmysql%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/"/>
+    <id>http://yoursite.com/2020/01/10/03_Docker配置mysql主从复制/</id>
+    <published>2020-01-09T16:00:00.000Z</published>
+    <updated>2020-01-10T09:48:26.254Z</updated>
+    
+    <content type="html"><![CDATA[<h1>学习打卡_Docker容器：</h1><a id="more"></a><blockquote><p>已有环境 tomcat下有一个项目，有一个mysql容器，项目与这个mysql容器对接完成—–配置从服务器</p></blockquote><p>1、创建一个mysql实例 命名从服务器</p><p><code>docker run --name mysql5.7cong -e MYSQL_ROOT_PASSWORD=tiantian -p 3307:3306 -d mysql:5.7</code></p><p>2、搭建从服务器与主服务器表库结构一致</p><p>3、完成以上准备工作就可以开始配置主机mysql配置文件</p><p>– 进入主机mysql容器</p><p><code>docker exec -it e1066fe2db35 /bin/bash</code></p><p>– 安装vim编辑更改配置文件</p><ul><li>更新软件包<br> <code>apt-get update</code></li><li>安装vim<br> <code>apt-get install vim</code></li></ul><p>– 修改配置文件</p><p><code>vim /etc/mysql/mysql.conf.d/mysqld.cnf</code></p><p>– 添加如下内容</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">## 同一局域网内注意要唯一</span><br><span class="line">server-id=1  </span><br><span class="line">## 开启二进制日志功能，可以随便取（关键）</span><br><span class="line">log-bin=mysql-bin</span><br></pre></td></tr></table></figure><p>– 重启MySQL服务<code>service mysql restart</code>,重启容器<code>docker start d9f3f44270f2</code></p><p>4、链接MySQL客户端执行以下命令<br>：参数 用户名 ip地址 密码 都是从机的配置<br><code>GRANT replication slave ON *.* TO &#39;root&#39;@&#39;192.168.0.108&#39; IDENTIFIED BY &#39;tiantian&#39;;</code></p><p><code>FLUSH PRIVILEGES</code></p><p><code>show master status;</code> :记录成成的两个值，不要对主机做任何操作，开始配从机</p><p>5、从机配置修改从机配置文件并重启服务和主机一样</p><p>– 修改配置文件</p><p><code>vim /etc/mysql/mysql.conf.d/mysqld.cnf</code></p><p> – 添加如下内容</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">## 同一局域网内注意要唯一</span><br><span class="line">server-id=2  </span><br><span class="line">## 开启二进制日志功能，可以随便取（关键）</span><br><span class="line">log-bin=mysql-bin</span><br></pre></td></tr></table></figure><p>– 重启MySQL服务<code>service mysql restart</code>,重启容器<code>docker start d9f3f44270f2</code></p><p>– 打开从服务器mysql命令 参数是主机的信息以及上述了两个记录值</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CHANGE</span> <span class="keyword">MASTER</span> <span class="keyword">TO</span> MASTER_HOST=<span class="string">'192.78.23.142'</span>,</span><br><span class="line">MASTER_USER=<span class="string">'root'</span>,</span><br><span class="line">MASTER_PASSWORD=<span class="string">'tiantian'</span>,</span><br><span class="line">MASTER_LOG_FILE=<span class="string">'mysql-bin.000001'</span>,</span><br><span class="line">MASTER_LOG_POS=<span class="number">613</span>;</span><br></pre></td></tr></table></figure><p>– 开启从复制</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">start</span> <span class="keyword">slave</span>;</span><br></pre></td></tr></table></figure><p>– 查看是否生效：<code>show slave status\G;</code> 出现两个yes表示成功</p><p>– 停止服务复制</p><p><code>stop slave</code></p>]]></content>
     
     <summary type="html">
     

@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Docker的安装与卸载 | boytian</title>
+  <title>Docker配置mysql主从复制 | boytian</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="description" content="学习打卡_Docker容器：">
 <meta name="keywords" content="Docker学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Docker的安装与卸载">
-<meta property="og:url" content="http://yoursite.com/2020/01/10/Docker安装与卸载/index.html">
+<meta property="og:title" content="Docker配置mysql主从复制">
+<meta property="og:url" content="http://yoursite.com/2020/01/10/03_Docker配置mysql主从复制/index.html">
 <meta property="og:site_name" content="boytian">
 <meta property="og:description" content="学习打卡_Docker容器：">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-10T08:26:35.060Z">
+<meta property="og:updated_time" content="2020-01-10T09:48:26.254Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Docker的安装与卸载">
+<meta name="twitter:title" content="Docker配置mysql主从复制">
 <meta name="twitter:description" content="学习打卡_Docker容器：">
   
     <link rel="alternative" href="/atom.xml" title="boytian" type="application/atom+xml">
@@ -194,14 +194,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Docker安装与卸载" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-03_Docker配置mysql主从复制" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      Docker的安装与卸载
+      Docker配置mysql主从复制
     </h1>
   
 
@@ -213,7 +213,7 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2020/01/10/Docker安装与卸载/" class="archive-article-date">
+<a href="/2020/01/10/03_Docker配置mysql主从复制/" class="archive-article-date">
         <time datetime="2020-01-09T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-10</time>
 </a>
 
@@ -227,7 +227,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">207字</span>
+      <span class="post-count">468字</span>
     </span>
   </span>
 
@@ -250,50 +250,45 @@
     <h1>学习打卡_Docker容器：</h1>
 
 <a id="more"></a>
+<blockquote>
+<p>已有环境 tomcat下有一个项目，有一个mysql容器，项目与这个mysql容器对接完成—–配置从服务器</p>
+</blockquote>
+<p>1、创建一个mysql实例 命名从服务器</p>
+<p><code>docker run --name mysql5.7cong -e MYSQL_ROOT_PASSWORD=tiantian -p 3307:3306 -d mysql:5.7</code></p>
+<p>2、搭建从服务器与主服务器表库结构一致</p>
+<p>3、完成以上准备工作就可以开始配置主机mysql配置文件</p>
+<p>– 进入主机mysql容器</p>
+<p><code>docker exec -it e1066fe2db35 /bin/bash</code></p>
+<p>– 安装vim编辑更改配置文件</p>
+<ul>
+<li>更新软件包<br> <code>apt-get update</code></li>
+<li>安装vim<br> <code>apt-get install vim</code></li>
+</ul>
+<p>– 修改配置文件</p>
+<p><code>vim /etc/mysql/mysql.conf.d/mysqld.cnf</code></p>
+<p>– 添加如下内容</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">## 同一局域网内注意要唯一</span><br><span class="line">server-id=1  </span><br><span class="line">## 开启二进制日志功能，可以随便取（关键）</span><br><span class="line">log-bin=mysql-bin</span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>Docker 安装与卸载</p>
-</blockquote>
-<hr>
-<p> 环境: CentOS7</p>
-<blockquote>
-<p>安装</p>
-</blockquote>
-<p>1、yum安装gcc相关，需要CentOS7能上外网</p>
-<p><code>yum -y install gcc</code> </p>
-<p><code>yum -y install gcc-c++</code></p>
-<p>2、卸载旧版本</p>
-<p><code>yum -y remove docker docker-common docker-selinux docker-engine</code></p>
-<p>3、安装需要的软件包</p>
-<p><code>yum install -y yum-utils device-mapper-persistent-data lvm2</code></p>
-<p>4、设置stable镜像仓库</p>
-<p><code>yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</code></p>
-<p>5、更新yum软件包索引</p>
-<p><code>yum makecache fast</code></p>
-<p>6、安装docker ce </p>
-<p><code>yum -y install docker-ce</code></p>
-<p>7、启动daocer</p>
-<p><code>systemctl start docker</code></p>
-<p>8、测试</p>
-<p><code>docker version</code></p>
-<p>9、配置镜像加速</p>
-<p><code>mkdir -p /etc/docker</code>  </p>
-<p><code>vim  /etc/docker/daemon.json</code></p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"registry-mirrors"</span>: [<span class="string">"https://2vvc7d7j.mirror.aliyuncs.com"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>– 重启MySQL服务<code>service mysql restart</code>,重启容器<code>docker start d9f3f44270f2</code></p>
+<p>4、链接MySQL客户端执行以下命令<br>：参数 用户名 ip地址 密码 都是从机的配置<br><code>GRANT replication slave ON *.* TO &#39;root&#39;@&#39;192.168.0.108&#39; IDENTIFIED BY &#39;tiantian&#39;;</code></p>
+<p><code>FLUSH PRIVILEGES</code></p>
+<p><code>show master status;</code> :记录成成的两个值，不要对主机做任何操作，开始配从机</p>
+<p>5、从机配置修改从机配置文件并重启服务和主机一样</p>
+<p>– 修改配置文件</p>
+<p><code>vim /etc/mysql/mysql.conf.d/mysqld.cnf</code></p>
+<p> – 添加如下内容</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">## 同一局域网内注意要唯一</span><br><span class="line">server-id=2  </span><br><span class="line">## 开启二进制日志功能，可以随便取（关键）</span><br><span class="line">log-bin=mysql-bin</span><br></pre></td></tr></table></figure>
 
-<p>10、配置生效</p>
-<p><code>systemctl daemon-reload</code></p>
-<p>11、重启docker</p>
-<p><code>systemctl restart docker</code></p>
-<blockquote>
-<p>卸载</p>
-</blockquote>
-<p>1、停止docker运行</p>
-<p><code>systemctl stop docker​</code></p>
-<p>2、执行卸载</p>
-<p><code>yum -y remove docker-ce</code></p>
-<p>3、删除相关文件</p>
-<p><code>rm -rf /var/lib/docker</code></p>
+<p>– 重启MySQL服务<code>service mysql restart</code>,重启容器<code>docker start d9f3f44270f2</code></p>
+<p>– 打开从服务器mysql命令 参数是主机的信息以及上述了两个记录值</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CHANGE</span> <span class="keyword">MASTER</span> <span class="keyword">TO</span> MASTER_HOST=<span class="string">'192.78.23.142'</span>,</span><br><span class="line">MASTER_USER=<span class="string">'root'</span>,</span><br><span class="line">MASTER_PASSWORD=<span class="string">'tiantian'</span>,</span><br><span class="line">MASTER_LOG_FILE=<span class="string">'mysql-bin.000001'</span>,</span><br><span class="line">MASTER_LOG_POS=<span class="number">613</span>;</span><br></pre></td></tr></table></figure>
+
+<p>– 开启从复制</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">start</span> <span class="keyword">slave</span>;</span><br></pre></td></tr></table></figure>
+
+<p>– 查看是否生效：<code>show slave status\G;</code> 出现两个yes表示成功</p>
+<p>– 停止服务复制</p>
+<p><code>stop slave</code></p>
 
     
 
@@ -382,7 +377,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/01/10/Docker安装与卸载/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/01/10/03_Docker配置mysql主从复制/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -397,7 +392,7 @@
 
 <nav id="article-nav">
   
-    <a href="/2020/01/10/Docker安装tomcat并部署项目/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/01/10/02_Docker安装tomcat并部署项目/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -406,11 +401,6 @@
       </div>
     </a>
   
-  
-    <a href="/2020/01/10/Docker配置mysql主从复制/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Docker配置mysql主从复制</div>
-      <i class="icon-circle-right"></i>
-    </a>
   
 </nav>
 
